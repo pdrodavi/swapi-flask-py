@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <title>Filmes de {{ name }}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/datatables.css') }}">
+    <script src="{{ url_for('static', filename='js/datatables.js') }}"></script>
+  </head>
+
+  <body>
+
+    <header style="width:100%">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"><img src="https://img.icons8.com/nolan/64/darth-vader.png"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/rankingstarships">Startships</a>
+            </li>    
+          </ul>
+        </div>
+      </nav>
+    </header>
+    
+    <table class="table table-hover" id="datatable" style="width:100%;">
+      <thead style="background-color: #665EFF; color: #fff;">
+        <tr style="text-transform: uppercase">
+          <th>Filmes de {{ name }}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for f in films %}
+            <tr>
+              <td>{{ f }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').dataTable();
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small" style="background-color: #665EFF;">
+      <div class="footer-copyright text-center py-3" style="color: #fff; text-decoration: none;">© 2020 Copyright:
+        <a href="https://www.pedrodavi.com.br/" style="color: #fff; text-decoration: none;"> Pedrodavi.com.br</a>
+      </div>
+    </footer>
+    <!-- Footer -->    
+    
+  </body>
+</html>
