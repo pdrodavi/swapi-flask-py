@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE: docker.io/${{ github.repository_owner }}/swapi-flask-py
+      IMAGE: docker.io/${{ github.repository_owner }}/${{ github.event.repository.name }}
       TAG: ${{ github.sha }}
 
     steps:
